@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyLV1 : MonoBehaviour
+public class EnemyLV1 : EnemyBase
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void TimerContent()
     {
-        
+        //Recover health
+        nav.SetDestination(target.position);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Damaged(float damage)
     {
-        
+        hp = Mathf.Max(0, hp - damage * 2);
+        if (hp == 0)
+        {
+            Death();
+        }
     }
 }
