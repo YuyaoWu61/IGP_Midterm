@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bullet;
+    public GameObject bulletTracker;
     public GameObject gunPoint;
-    bool canShoot = true;
+    public bool canShoot = true;
     public float shootTime = .2f;
 
     private float mouseSensitivity = 3.5f;
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     Transform cameraTrans;
     float cameraPitch = 0;
 
+    public GameObject gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        gameManager = GameObject.FindWithTag("GM");
     }
 
     // Update is called once per frame
@@ -38,6 +43,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && canShoot)
         {
             SpawnBullets();
+            canShoot = false;
+            StartCoroutine(SetBoolAfterDelay(shootTime));
+        }
+        if(Input.GetMouseButtonUp(1) && canShoot && gameManager.GetComponent<GameManager>().killTotal >= 1){
+            gameManager.GetComponent<GameManager>().killTotal -= 10;
+            GameObject btrack = Instantiate(bulletTracker, gunPoint.transform.position, Quaternion.identity);
             canShoot = false;
             StartCoroutine(SetBoolAfterDelay(shootTime));
         }

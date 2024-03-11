@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public bool isGameOver = false;
-    [SerializeField]
-    public GameObject ui_GameOverPage;
+    
+    public GameObject pauseMenuUI;
 
     void Awake()
     {
@@ -36,6 +36,19 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateKill();
+        if(Input.GetKeyUp(KeyCode.Space)){
+            if(!pauseMenuUI.activeSelf){
+                pauseMenuUI.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else{
+                pauseMenuUI.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            
+        }
     }
 
     public void UpdateKill(){
@@ -45,14 +58,17 @@ public class GameManager : MonoBehaviour
     public void GameOver()
 	{
         isGameOver = true;
-        ui_GameOverPage.SetActive(true);
+        // ui_GameOverPage.SetActive(true);
 
     }
 
     public void RestartLevel()
 	{
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
+    public void MainMenu(){
+        SceneManager.LoadScene("MainMenu");
+    }
     
 }
