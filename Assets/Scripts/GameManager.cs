@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public GameObject win;
     public GameObject lose;
 
+    public int bulletNum = 0;
+    public GameObject[] bullets = null;
+
     void Awake()
     {
         if(instance == null)
@@ -38,6 +41,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        bulletNum = bullets.Length;
+
         UpdateKill();
         if(Input.GetKeyUp(KeyCode.Space)){
             if(!pauseMenuUI.activeSelf){

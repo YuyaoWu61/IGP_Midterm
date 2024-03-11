@@ -16,6 +16,8 @@ public class EnemyBase : MonoBehaviour
 
     protected NavMeshAgent nav;
 
+    Quaternion initialRotation;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -23,11 +25,15 @@ public class EnemyBase : MonoBehaviour
         target = GameObject.FindWithTag("Player").transform;
         nav = GetComponent<NavMeshAgent>();
         gameManager = GameObject.FindWithTag("GM");
+
+        initialRotation = transform.rotation;
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
+        nav.updateRotation = false;
+        transform.rotation = initialRotation;
         TimerTool();
     }
 

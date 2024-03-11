@@ -40,12 +40,17 @@ public class PlayerController : MonoBehaviour
         cameraPitch = Mathf.Clamp(cameraPitch, -90, 90);
         cameraTrans.localEulerAngles = Vector3.right * cameraPitch;
 
-        if (Input.GetMouseButtonUp(0) && canShoot)
-        {
-            SpawnBullets();
-            canShoot = false;
-            StartCoroutine(SetBoolAfterDelay(shootTime));
+
+        if(gameManager.GetComponent<GameManager>().bulletNum <= 3){
+            if (Input.GetMouseButtonUp(0) && canShoot)
+            {
+                SpawnBullets();
+                canShoot = false;
+                StartCoroutine(SetBoolAfterDelay(shootTime));
+            }
         }
+        
+
         if(Input.GetMouseButtonUp(1) && canShoot && gameManager.GetComponent<GameManager>().killTotal >= 5){
             gameManager.GetComponent<GameManager>().killTotal -= 5;
             GameObject btrack = Instantiate(bulletTracker, gunPoint.transform.position, Quaternion.identity);

@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     MeshRenderer bulletMesh;
 
     float timer = 0;
-    float timerTotal = 10;
+    float timerTotal = 6;
     bool isBulletTriggered = false;
 
     public GameObject gameManager;

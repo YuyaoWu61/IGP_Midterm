@@ -5,16 +5,21 @@ using UnityEngine;
 public class EnemyLV1 : EnemyBase
 {
     public float speed = 3.5f;
+    Quaternion initialRotation;
     protected override void Start()
     {
         base.Start();
         nav.speed = speed;
         gameManager = GameObject.FindWithTag("GM");
+
+        initialRotation = transform.rotation;
     }
     protected override void TimerContent()
     {
         //Recover health
         nav.SetDestination(target.position);
+        nav.updateRotation = false;
+        transform.rotation = initialRotation;
     }
 
     private void OnTriggerEnter(Collider other) {
