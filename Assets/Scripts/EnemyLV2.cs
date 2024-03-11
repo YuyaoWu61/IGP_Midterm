@@ -10,6 +10,7 @@ public class EnemyLV2 : EnemyBase
     {
         base.Start();
         nav.speed = speed;
+        gameManager = GameObject.FindWithTag("GM");
     }
 
     // Update is called once per frame
@@ -25,6 +26,10 @@ public class EnemyLV2 : EnemyBase
     }
 
     private void OnTriggerEnter(Collider other) {
-        gameManager.GetComponent<GameManager>().killTotal += 1;
+        if(other.CompareTag("Player")){
+            gameManager.GetComponent<GameManager>().killTotal -= 3;
+        }else if(other.CompareTag("Bullet")){
+            gameManager.GetComponent<GameManager>().killTotal += 1;
+        }
     }
 }

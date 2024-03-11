@@ -71,6 +71,9 @@ public class Bullet : MonoBehaviour
             DestroySelf();
 			
         }
-        DestroySelf();
+        else if(other.CompareTag("Player")){
+            // DestroySelf();
+        }
+        
 	}
 }

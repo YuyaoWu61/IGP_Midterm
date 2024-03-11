@@ -9,6 +9,7 @@ public class EnemyLV1 : EnemyBase
     {
         base.Start();
         nav.speed = speed;
+        gameManager = GameObject.FindWithTag("GM");
     }
     protected override void TimerContent()
     {
@@ -26,6 +27,11 @@ public class EnemyLV1 : EnemyBase
     }
 
     private void OnTriggerEnter(Collider other) {
-        gameManager.GetComponent<GameManager>().killTotal += 1;
+        if(other.CompareTag("Player")){
+            gameManager.GetComponent<GameManager>().killTotal -= 3;
+        }else if(other.CompareTag("Bullet")){
+            gameManager.GetComponent<GameManager>().killTotal += 1;
+        }
+        
     }
 }
