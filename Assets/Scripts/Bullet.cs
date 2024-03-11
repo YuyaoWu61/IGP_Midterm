@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     float speed = 10;
-    float damage = 20;
+    // float damage = 20;
     [SerializeField]
     // ParticleSystem particle;
     MeshRenderer bulletMesh;
@@ -56,24 +56,23 @@ public class Bullet : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (!isBulletTriggered && !other.CompareTag("Player") && !other.CompareTag("Bullet"))
-        {
-            if (other.CompareTag("Enemy"))
-			{
-                Destroy(other.gameObject);
-                // gameManager.GetComponent<GameManager>().killTotal += 1;
-                Debug.Log("killed 1");
+        if(!other.CompareTag("Player")){
+            if (!isBulletTriggered && !other.CompareTag("Bullet"))
+            {
+                if (other.CompareTag("Enemy"))
+                {
+                    Destroy(other.gameObject);
+                    // gameManager.GetComponent<GameManager>().killTotal += 1;
+                    Debug.Log("killed 1");
+                    DestroySelf();
+                    
+                    // particle.Play();
+                }
                 DestroySelf();
-                // var enemy = other.GetComponent<EnemyBase>();
-                // enemy.Damaged(damage);
-                // particle.Play();
             }
             DestroySelf();
-			
         }
-        else if(other.CompareTag("Player")){
-            // DestroySelf();
-        }
+		 
         
 	}
 }

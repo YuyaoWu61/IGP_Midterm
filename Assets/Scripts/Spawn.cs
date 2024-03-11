@@ -27,8 +27,8 @@ public class Spawn : MonoBehaviour
 		{
             if(currentLevel == 1)
             {
-                spawnRate_EnemyLV1 = 6;
-                spawnRate_EnemyLV2 = 8;
+                spawnRate_EnemyLV1 = 5;
+                spawnRate_EnemyLV2 = 7;
             }
             else
             {
@@ -53,7 +53,7 @@ public class Spawn : MonoBehaviour
     }
 
     private void Start() {
-        StartCoroutine(GetRandomNum(1.2f));
+        StartCoroutine(GetRandomNum(1f));
     }
 
 	private void FixedUpdate()

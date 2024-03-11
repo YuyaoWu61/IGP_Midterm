@@ -6,7 +6,7 @@ public class BulletHoming : MonoBehaviour
 {
     
     float speed = 17;
-    float damage = 20;
+    // float damage = 20;
     [SerializeField]
     // ParticleSystem particle;
     MeshRenderer bulletMesh;

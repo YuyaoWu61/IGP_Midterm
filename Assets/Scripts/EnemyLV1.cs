@@ -29,6 +29,7 @@ public class EnemyLV1 : EnemyBase
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player")){
             gameManager.GetComponent<GameManager>().killTotal -= 3;
+            Destroy(this.gameObject);
         }else if(other.CompareTag("Bullet")){
             gameManager.GetComponent<GameManager>().killTotal += 1;
         }
