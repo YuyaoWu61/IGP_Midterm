@@ -53,7 +53,7 @@ public class Spawn : MonoBehaviour
     }
 
     private void Start() {
-        StartCoroutine(GetRandomNum(1.3f));
+        StartCoroutine(GetRandomNum(1.2f));
     }
 
 	private void FixedUpdate()

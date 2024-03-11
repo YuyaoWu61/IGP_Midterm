@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
     
     public GameObject pauseMenuUI;
+    public GameObject resultUI;
+    public GameObject win;
+    public GameObject lose;
 
     void Awake()
     {
@@ -49,6 +52,29 @@ public class GameManager : MonoBehaviour
             }
             
         }
+
+        if(killTotal >= 50){
+            resultUI.SetActive(true);
+            win.SetActive(true);
+            lose.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            StartCoroutine(LoadMenu(2f));
+        }else if(killTotal < 0){
+            resultUI.SetActive(true);
+            win.SetActive(false);
+            lose.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            StartCoroutine(LoadMenu(2f));
+        }
+    }
+
+    IEnumerator LoadMenu(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        MainMenu();
+        
     }
 
     public void UpdateKill(){
