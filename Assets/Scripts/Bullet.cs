@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     MeshRenderer bulletMesh;
 
     float timer = 0;
-    float timerTotal = 6;
+    float timerTotal = 4;
     bool isBulletTriggered = false;
 
     public GameObject gameManager;
@@ -51,7 +51,7 @@ public class Bullet : MonoBehaviour
 	{
         
         // GameManager.instance.RemoveBullet(this);
-        Destroy(gameObject);
+        Destroy(this.gameObject);
 	}
 
 	private void OnTriggerEnter(Collider other)

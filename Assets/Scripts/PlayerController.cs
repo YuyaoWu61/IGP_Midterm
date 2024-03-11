@@ -51,8 +51,8 @@ public class PlayerController : MonoBehaviour
         }
         
 
-        if(Input.GetMouseButtonUp(1) && canShoot && gameManager.GetComponent<GameManager>().killTotal >= 5){
-            gameManager.GetComponent<GameManager>().killTotal -= 5;
+        if(Input.GetMouseButtonUp(1) && canShoot && gameManager.GetComponent<GameManager>().killTotal >= 3){
+            gameManager.GetComponent<GameManager>().killTotal -= 3;
             GameObject btrack = Instantiate(bulletTracker, gunPoint.transform.position, Quaternion.identity);
             canShoot = false;
             StartCoroutine(SetBoolAfterDelay(shootTime));

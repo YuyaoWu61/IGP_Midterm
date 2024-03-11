@@ -82,7 +82,7 @@ public class BulletHoming : MonoBehaviour
 	{
         
         // GameManager.instance.RemoveBullet(this);
-        Destroy(gameObject);
+        Destroy(this.gameObject);
 	}
 
 	private void OnTriggerEnter(Collider other)
