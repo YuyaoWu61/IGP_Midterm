@@ -66,7 +66,7 @@ public class Spawn : MonoBehaviour
                 Transform spawnPoint = FindAvailableSpawnPoint();
                 if (spawnPoint != null)
                 {
-                    SpawnEnemies(1, spawnPoint.position, spawnPoint.rotation);
+                    SpawnEnemies(1, spawnPoint.position, Quaternion.identity);
                 }
                 randomNumber = 0;
             }
@@ -74,7 +74,7 @@ public class Spawn : MonoBehaviour
                 Transform spawnPoint = FindAvailableSpawnPoint();
                 if (spawnPoint != null)
                 {
-                    SpawnEnemies(0, spawnPoint.position, spawnPoint.rotation);
+                    SpawnEnemies(0, spawnPoint.position, Quaternion.identity);
                 }
                 randomNumber = 0;
             }    

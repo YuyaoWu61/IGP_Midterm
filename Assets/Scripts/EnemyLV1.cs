@@ -17,18 +17,9 @@ public class EnemyLV1 : EnemyBase
         nav.SetDestination(target.position);
     }
 
-    public override void Damaged(float damage)
-    {
-        hp = Mathf.Max(0, hp - damage * 2);
-        if (hp == 0)
-        {
-            Death();
-        }
-    }
-
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player")){
-            gameManager.GetComponent<GameManager>().killTotal -= 3;
+            gameManager.GetComponent<GameManager>().killTotal -= 2;
             Destroy(this.gameObject);
         }else if(other.CompareTag("Bullet")){
             gameManager.GetComponent<GameManager>().killTotal += 1;
