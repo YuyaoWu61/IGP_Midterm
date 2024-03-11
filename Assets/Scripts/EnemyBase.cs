@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyBase : MonoBehaviour
 {
+    public GameObject gameManager;
     protected Transform target;
     protected float hp = 0;
     [SerializeField]
@@ -21,6 +22,7 @@ public class EnemyBase : MonoBehaviour
         hp = hpTotal;
         target = GameObject.FindWithTag("Player").transform;
         nav = GetComponent<NavMeshAgent>();
+        gameManager = GameObject.FindWithTag("GM");
     }
 
     // Update is called once per frame

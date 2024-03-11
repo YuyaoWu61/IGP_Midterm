@@ -15,10 +15,12 @@ public class Bullet : MonoBehaviour
     float timerTotal = 3;
     bool isBulletTriggered = false;
 
+    public GameObject gameManager;
+
 	private void Start()
 	{
         bulletMesh = GetComponent<MeshRenderer>();
-
+        gameManager = GameObject.FindWithTag("GM");
     }
 
 	// Update is called once per frame
@@ -41,12 +43,13 @@ public class Bullet : MonoBehaviour
     void BulletTriggered()
     {
         isBulletTriggered = true;
-        bulletMesh.enabled = false;
-        Invoke("DestroySelf", 2);
+        // bulletMesh.enabled = false;
+        Invoke("DestroySelf", 1);
     }
 
     void DestroySelf()
 	{
+        
         // GameManager.instance.RemoveBullet(this);
         Destroy(gameObject);
 	}
@@ -55,14 +58,19 @@ public class Bullet : MonoBehaviour
 	{
 		if (!isBulletTriggered && !other.CompareTag("Player") && !other.CompareTag("Bullet"))
         {
-            BulletTriggered();
-			if (other.CompareTag("Enemy"))
+            if (other.CompareTag("Enemy"))
 			{
                 Destroy(other.gameObject);
+                // gameManager.GetComponent<GameManager>().killTotal += 1;
+                Debug.Log("killed 1");
+                DestroySelf();
                 // var enemy = other.GetComponent<EnemyBase>();
                 // enemy.Damaged(damage);
                 // particle.Play();
             }
+            DestroySelf();
+			
         }
+        DestroySelf();
 	}
 }

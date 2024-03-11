@@ -2,27 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyLV1 : EnemyBase
+public class EnemyLV2 : EnemyBase
 {
-    public float speed = 3.5f;
+    public float speed = 5f;
+    // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
         nav.speed = speed;
     }
+
+    // Update is called once per frame
+    protected override void Update()
+    {
+        base.Update();
+    }
     protected override void TimerContent()
     {
         //Recover health
+        // hp = Mathf.Min(hp + Time.deltaTime, hpTotal);
         nav.SetDestination(target.position);
-    }
-
-    public override void Damaged(float damage)
-    {
-        hp = Mathf.Max(0, hp - damage * 2);
-        if (hp == 0)
-        {
-            Death();
-        }
     }
 
     private void OnTriggerEnter(Collider other) {

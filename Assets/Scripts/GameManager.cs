@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +11,9 @@ public class GameManager : MonoBehaviour
     //it's static so it can be accessed by other scripts
     public static GameManager instance;
 
-    public Transform player;
+    public GameObject player;
+    public int killTotal = 0;
+    public TMP_Text killtext;
 
     [HideInInspector]
     public bool isGameOver = false;
@@ -31,7 +35,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateKill();
+    }
+
+    public void UpdateKill(){
+        killtext.text = killTotal.ToString();
     }
 
     public void GameOver()
