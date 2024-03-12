@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         cameraTrans.localEulerAngles = Vector3.right * cameraPitch;
 
 
-        if(gameManager.GetComponent<GameManager>().bulletNum <= 3){
+        if(gameManager.GetComponent<GameManager>().bulletNum <= 2){
             if (Input.GetMouseButtonUp(0) && canShoot)
             {
                 SpawnBullets();

@@ -444,7 +444,7 @@ MonoBehaviour:
   bulletTracker: {fileID: 494116840216207668, guid: 64f5f04eb6cccca4f9b0823d031bed01, type: 3}
   gunPoint: {fileID: 855505957}
   canShoot: 1
-  shootTime: 0.2
+  shootTime: 0.5
   m_cam: {fileID: 963194227}
   gameManager: {fileID: 1001913340}
 --- !u!136 &203265484
@@ -466,7 +466,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Height: 2.8430343
   m_Direction: 1
   m_Center: {x: 0, y: -0.033329725, z: 0}
@@ -2472,7 +2472,7 @@ Transform:
   m_GameObject: {fileID: 1371277777}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.01, y: -7, z: -6.23}
+  m_LocalPosition: {x: 4.01, y: -7, z: -0.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3619,7 +3619,7 @@ Transform:
   m_GameObject: {fileID: 1936194735}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.42, y: -7, z: -8.53}
+  m_LocalPosition: {x: -34.42, y: -7, z: 0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
