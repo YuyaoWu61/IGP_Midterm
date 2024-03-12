@@ -62,10 +62,7 @@ public class PlayerController : MonoBehaviour
     public void SpawnBullets(){
         GameObject b = Instantiate(bullet, gunPoint.transform.position, Quaternion.identity);
         // m_cam.
-        // b.transform.position = pos;
-        // b.transform.rotation = rot;
 
-        // bulletList.Add(bullet);
     }
 
     IEnumerator SetBoolAfterDelay(float delay)

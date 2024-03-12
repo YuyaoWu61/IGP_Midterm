@@ -10,10 +10,7 @@ public class Spawn : MonoBehaviour
     
     public GameObject[] prefab_Enemies;
 
-    // List<EnemyBase> enemyList = new List<EnemyBase>();
 
-    // [SerializeField]
-    // Transform enemyGroup;
     [SerializeField]
     Transform[] spawnPoints;
 
@@ -115,22 +112,7 @@ public class Spawn : MonoBehaviour
     public void SpawnEnemies(int id, Vector3 pos, Quaternion rot)
     {
         GameObject enemy = Instantiate(prefab_Enemies[id], pos, Quaternion.identity);
-        // enemy.transform.position = pos;
-        // enemy.transform.rotation = rot;
 
-        // enemyList.Add(enemy);
     }
-    // public void RemoveEnemy(EnemyBase enemy)
-    // {
-    //     if(enemy as EnemyLV1)
-    //     {
-    //         spawnRate.spawnRate_EnemyLV1 += 0.0001f;
-    //     }
-    //     else if (enemy as EnemyLV2)
-    //     {
-    //         spawnRate.spawnRate_EnemyLV2 += 0.0001f;
-    //     }
 
-    //     enemyList.Remove(enemy);
-    // }
 }

@@ -1842,6 +1842,8 @@ MonoBehaviour:
   resultUI: {fileID: 2143538640}
   win: {fileID: 3589038}
   lose: {fileID: 275674727}
+  bulletNum: 0
+  bullets: []
 --- !u!4 &1001913342
 Transform:
   m_ObjectHideFlags: 0
@@ -4187,7 +4189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4674375641328904631, guid: b9415344639abe34888e34ee992bcc39, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.98
+      value: 1.78
       objectReference: {fileID: 0}
     - target: {fileID: 4674375641328904631, guid: b9415344639abe34888e34ee992bcc39, type: 3}
       propertyPath: m_LocalPosition.z
